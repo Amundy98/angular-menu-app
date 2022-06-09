@@ -1,0 +1,88 @@
+<p>english works!</p>
+<div class="container" ng-app="myApp">
+  <h1>Adult BMI Calculator</h1>
+  <div class="row">
+    <h3>1. Height</h3>
+    <p>Feet:</p>
+    <p class="inches">Inches:</p>
+    <input [(ngModel)]="feet" type="number" min="0" max="8" />
+    <input [(ngModel)]="inches" type="number" min="0" max="11" />
+
+    <br />
+    <br />
+
+    <p ng-model>Weight:</p>
+    <!-- <input class="dropdown" type="number" min="0" [[(ngModel)]="weight" /> -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="totalResults()"
+    ></button>
+
+    <h1>Your BMI is</h1>
+
+    <div *ngIf="this.result >= 30">
+      <p>For the information you entered:</p>
+      <p>Height: {{ height }}</p>
+      <p>Weight: {{ weight }}</p>
+      <p>
+        Your BMI is {{ result }} , indicating your weight is in the
+        <strong>Obesity</strong>
+        category for adults of your height.
+      </p>
+
+      <p>
+        People who are overweight or obese are at higher risk for chronic
+        conditions such as high blood pressure, diabetes, and high cholesterol.
+        Try reducing your calorie intake and exercising. One day at a time!
+      </p>
+    </div>
+
+    <div *ngIf="this.result >= 25 && this.result <= 29.9">
+      <p>For the information you entered:</p>
+      <p>Height: {{ height }}</p>
+      <p>Weight: {{ weight }}</p>
+      <p>
+        Your BMI is {{ result }} , indicating your weight is in the
+        <strong>Overweight</strong>
+        category for adults of your height.
+      </p>
+
+      <p>
+        People who are overweight or obese are at higher risk for chronic
+        conditions such as high blood pressure, diabetes, and high cholesterol.
+        Try reducing your calorie intake and exercising. One day at a time!
+      </p>
+    </div>
+
+    <div *ngIf="this.result >= 18.5 && this.result <= 24.9">
+      <p>For the information you entered:</p>
+      <p>Height: {{ height }}</p>
+      <p>Weight: {{ weight }}</p>
+      <p>
+        Your BMI is {{ result }} , indicating your weight is in the
+        <strong>Healthy</strong>
+        category for adults of your height.
+      </p>
+
+      <p>
+        Maintaining a healthy weight may reduce the risk of chronic diseases
+        associated with overweight and obesity.
+      </p>
+    </div>
+
+    <div *ngIf="this.result >= 1 && this.result <= 18.5">
+      <p>For the information you entered:</p>
+      <p>Height: {{ height }}</p>
+      <p>Weight: {{ weight }}</p>
+      <p>
+        Your BMI is {{ result }} , indicating your weight is in the
+        <strong>Underweight</strong> category for adults of your height.
+      </p>
+      <p>
+        Talk with your healthvare provider to determine possible causes of
+        underweight and if you need to gain weight.
+      </p>
+    </div>
+  </div>
+</div>
